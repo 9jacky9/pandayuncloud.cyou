@@ -1,60 +1,71 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Flutter 与 Android Studio SDK 下载慢：镜像、代理与离线的处理 - 熊猫云星际观测站</title>
-<meta name="description" content="配置 Flutter 或 Android Studio 时 SDK 下载很慢、中途失败？说明镜像环境变量、IDE 代理设置、离线安装与缓存清理的办法。">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<title>Docker镜像一直Downloading怎么办：拉取阶段、代理位置与摘要核对</title>
+<meta content="区分镜像元数据、分层下载和解压阶段，检查Docker daemon与Desktop代理差异，在不破坏缓存的前提下恢复拉取。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="space-deck">
-    <header class="top-nav sticky-header">
-        <a href="index.html" class="logo" style="text-decoration:none; color:inherit; border:none;">
-            <!-- Astronaut Panda Logo -->
-            <svg viewBox="0 0 100 100" width="45" height="45" xmlns="http://www.w3.org/2000/svg">
-                <!-- Helmet -->
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-width="4"/>
-                <circle cx="50" cy="50" r="38" fill="#1a1a2e"/>
-                <!-- Panda Face -->
-                <circle cx="35" cy="45" r="10" fill="#fff"/>
-                <circle cx="65" cy="45" r="10" fill="#fff"/>
-                <circle cx="35" cy="45" r="4" fill="#ff6a00"/>
-                <circle cx="65" cy="45" r="4" fill="#ff6a00"/>
-                <path d="M45 60 Q50 65 55 60" fill="none" stroke="#fff" stroke-width="3"/>
-                <!-- Antenna -->
-                <line x1="50" y1="5" x2="50" y2="15" stroke="#ff6a00" stroke-width="3"/>
-                <circle cx="50" cy="5" r="3" fill="#ff6a00"/>
-            </svg>
+<header class="top-nav sticky-header">
+<a class="logo" href="index.html" style="text-decoration:none; color:inherit; border:none;">
+<!-- Astronaut Panda Logo -->
+<svg height="45" viewbox="0 0 100 100" width="45" xmlns="http://www.w3.org/2000/svg">
+<!-- Helmet -->
+<circle cx="50" cy="50" fill="none" r="45" stroke="#fff" stroke-width="4"></circle>
+<circle cx="50" cy="50" fill="#1a1a2e" r="38"></circle>
+<!-- Panda Face -->
+<circle cx="35" cy="45" fill="#fff" r="10"></circle>
+<circle cx="65" cy="45" fill="#fff" r="10"></circle>
+<circle cx="35" cy="45" fill="#ff6a00" r="4"></circle>
+<circle cx="65" cy="45" fill="#ff6a00" r="4"></circle>
+<path d="M45 60 Q50 65 55 60" fill="none" stroke="#fff" stroke-width="3"></path>
+<!-- Antenna -->
+<line stroke="#ff6a00" stroke-width="3" x1="50" x2="50" y1="5" y2="15"></line>
+<circle cx="50" cy="5" fill="#ff6a00" r="3"></circle>
+</svg>
             熊猫云
         </a>
-        <nav class="nav-links">
-            <a href="index.html#features">核心引擎</a>
-            <a href="index.html#pricing">舰队补给</a>
-            <a href="index.html#faq">指挥中心</a>
-            <a href="observatory.html">星际观测站</a>
-        </nav>
-        <div class="nav-cta">
-            <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" class="capsule-btn btn-small" rel="nofollow" target="_blank">登舰试航</a>
-        </div>
-    </header>
-    <main style="padding: 50px 20px; max-width: 900px; margin: 0 auto;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f4f4f9;">Flutter 与 Android Studio SDK 下载慢：镜像、代理与离线的处理</h1>
-        <div class="content" style="line-height: 1.8; font-size: 1.1rem; color: #ccc;">
-<h2 style="color: #ff6a00;">先分清是哪一步慢</h2>
-<p>移动开发要下载的东西很多：Flutter SDK、Android SDK、构建工具、模拟器镜像和各种依赖库。先看卡在哪一步，才好对症处理。</p>
-<h2 style="color: #ff6a00;">Flutter 的镜像设置</h2>
-<p>通过设置环境变量，让 Flutter 从镜像站下载引擎与依赖包。设置后重新打开终端，再运行诊断命令确认环境。镜像站要选择更新及时、来源可信的。</p>
-<h2 style="color: #ff6a00;">Android Studio 的代理</h2>
-<p>在设置的 HTTP 代理页面填写代理地址和端口，使用检查连接功能确认可用。SDK 管理器、Gradle 同步和插件市场都会读取这里的设置。</p>
-<h2 style="color: #ff6a00;">离线与缓存</h2>
-<ul><li>体积很大的系统镜像可以在网络好时先下载保存。</li><li>构建缓存损坏时，清理后重新同步。</li><li>在团队里共享已下载的 SDK 压缩包，省去重复下载。</li></ul>
-<h2 style="color: #ff6a00;">小结</h2>
-<p>镜像加速度、代理保稳定、离线做兜底，三者搭配，环境搭建不再是噩梦。</p>
- </div>
-    </main>
-    <footer class="footer-nav">
-        <p>&copy; 2026 熊猫云.</p>
-    </footer>
+<nav class="nav-links">
+<a href="index.html#features">核心引擎</a>
+<a href="index.html#pricing">舰队补给</a>
+<a href="index.html#faq">指挥中心</a>
+<a href="observatory.html">星际观测站</a>
+</nav>
+<div class="nav-cta">
+<a class="capsule-btn btn-small" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">登舰试航</a>
+</div>
+</header>
+<main style="padding: 50px 20px; max-width: 900px; margin: 0 auto;">
+<h1 style="font-size: 2.5rem; margin-bottom: 2rem; color: #f4f4f9;">Docker镜像一直Downloading怎么办：拉取阶段、代理位置与摘要核对</h1>
+<div class="content" style="line-height: 1.8; font-size: 1.1rem; color: #ccc;"><div data-swc-article-body="2026-11-16"><p>执行docker pull后长时间停在Downloading，不一定是同一个网络问题。拉取包含访问仓库、获取清单、下载多个层、验证与解压等步骤；终端设置了代理，也不一定影响负责拉取的后台服务。本文针对自己有权限管理的开发环境，先找阶段，再决定调整接入还是本机资源。</p>
+<h2>先确认拉取对象没有写错</h2>
+<p>保存完整镜像名称、仓库地址、标签和错误文字。标签不存在、仓库需要登录、账户受限，与传输超时是不同问题。不要把一个项目名直接替换为搜索结果中的同名镜像，来源不同可能代表完全不同的程序，下载更快不等于内容可信。</p>
+<p>团队需要可重复构建时，应按项目约定使用固定版本或摘要。标签可以随发布变化，摘要用于标识具体内容；拉取结束后核对预期摘要与实际结果，有助于确认拿到的是所需镜像。但摘要本身不能替代对发布者来源的信任判断。</p>
+<h2>第一轮操作：保留分层进度</h2>
+<ol><li>运行项目要求的<code>docker pull 仓库名:标签</code>，观察各层显示的是等待、下载、验证还是解压。</li><li>记下停住的阶段与最终错误，不要立刻清空全部镜像缓存。</li><li>运行<code>docker system df</code>查看Docker使用的存储概况，再结合系统剩余磁盘空间判断是否存在空间压力。</li></ol>
+<p>解压阶段慢而网络传输已停止，可能需要检查磁盘和处理器，不适合继续换DNS。显示没有足够空间时，先按项目保留策略整理已确认不用的资源；不要为了腾空间盲目运行会删除未使用卷的清理命令，卷里可能保存开发数据。</p>
+<h2>把认证和限额错误先处理掉</h2>
+<p>私有仓库需要账户具备对应权限，使用仓库推荐的登录方式。共享开发机不应把个人令牌写进公共脚本。Docker Hub也有与使用方式相关的限制，遇到明确限额响应时应核对账户条件和当前文档，不通过无休止重试继续增加请求。</p>
+<p>如果只有某个标签失败，其他已知公开镜像正常，调查目标仓库与标签；如果全部仓库连接都超时，再看公共接入和代理。小镜像成功只证明基本通路存在，大镜像可能暴露持续连接或空间问题，因此对照结论应限定范围。</p>
+<h2>终端代理、后台服务与Desktop分开配置</h2>
+<p>普通Docker Engine的镜像拉取由daemon处理，终端的环境变量不一定自动传给后台服务。按官方daemon代理配置方法核对实际运行环境。Docker Desktop则使用自己的代理设置路径，不能把普通Linux服务的配置文件教程原样照搬。</p>
+<p>Docker官方说明，daemon.json中的代理配置不适用于Docker Desktop的对应代理设置。打开Desktop设置，在当前版本的代理相关部分核对系统代理或手动代理选择，并确认哪个配置负责镜像拉取。受组织管理的设备可能不允许自行更改，应交由管理员处理。</p>
+<ol><li>先记录当前Engine或Desktop版本与现有代理配置，不把包含密码的代理地址公开。</li><li>只修改所用产品支持的那一处设置，按官方要求应用变更；需要重启服务时先安排好正在运行的任务。</li><li>重新拉取同一镜像，比较是否越过原先失败阶段，再验证普通容器工作没有受影响。</li></ol>
+<h2>并发下载不是越多越快</h2>
+<p>镜像的不同层可能同时下载。带宽较小或连接不稳定时，过多并发可能增加超时；官方提供相应daemon并发控制，但应在确认环境后调整，不直接复制高并发参数。先观察现有层下载表现，再尝试降低竞争，比较完整完成时间。</p>
+<p>如果团队确实需要跨境下载服务，可阅读<a href="https://dajichang.mom/">镜像下载机场选择</a>的协议与流量条件，再验证自己的运行环境。客户端网页能上网不证明Docker后台已走同一路径，套餐比较也不能修复标签错误或磁盘不足。</p>
+<h2>不要随意信任第三方镜像替换</h2>
+<p>加速镜像或缓存服务需要明确来源、同步策略和信任边界。把所有仓库统一改写到陌生地址，可能引入过期或非预期内容。企业项目更应沿用组织批准的仓库和摘要核验，不用一次临时下载成功换来长期供应链不确定性。</p>
+<p>下载中断后先观察正常重试是否利用已有层，保留当前有效缓存。若总是同一层校验失败，记录层标识和错误，再检查存储或来源问题。不要通过跳过校验来把失败变成表面成功，完整性检查本来就是交付的一部分。</p>
+<p>若拉取命令其实连接的是远端Docker环境，电脑本地的网络测试就不能代表后台所在机器。先运行<code>docker context show</code>确认当前上下文，再核对实际执行位置。远端构建机需要由其管理员检查接入，别在自己的电脑反复修改代理却期待远端路径变化。</p><h2>完成后验证实际开发任务</h2>
+<p>拉取成功后确认镜像标签、摘要和目标平台符合项目要求，再运行项目约定的最小启动检查。没有必要为了验证下载而启动未知镜像。保留修复项、错误阶段和最终结果，下次更新基础镜像时就能更快区分网络问题与构建问题。</p></div></div>
+</main>
+<footer class="footer-nav">
+<p>© 2026 熊猫云.</p>
+</footer>
 </div>
 </body>
 </html>
