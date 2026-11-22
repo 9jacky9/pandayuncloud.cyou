@@ -154,3 +154,38 @@ a:hover, a:active {
 .content h2 { margin-top: 3rem; margin-bottom: 1.5rem; color: var(--flare); border-left: 4px solid var(--flare); padding-left: 15px; }
 .content h3 { margin-top: 2rem; margin-bottom: 1rem; color: var(--flare); }
 .content p { margin-bottom: 1.5rem; }
+
+/* conversion-revision-2026-11-22: price cards + mobile navigation that stays visible */
+.pricing-cards { align-items: stretch; }
+.price-card { display: flex; flex-direction: column; text-align: left; }
+.price-card h3 { text-align: center; }
+.price-card .price-sub { text-align: center; color: #cfd2e8; margin-bottom: 16px; }
+.price-card .price-list { list-style: none; margin: 0 0 22px; padding: 0; flex: 1; color: #d6d6e6; line-height: 1.7; }
+.price-card .price-list li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.price-card .capsule-btn { display: block; text-align: center; }
+.price-card-main { border-top-width: 6px; box-shadow: 0 0 0 1px var(--flare) inset; }
+@media (max-width: 768px) {
+  .sticky-header { display: grid !important; grid-template-columns: 1fr auto; row-gap: 10px; column-gap: 12px; padding: 10px 14px; justify-content: stretch; }
+  .sticky-header .logo { grid-column: 1; grid-row: 1; font-size: 1.3rem; letter-spacing: 1px; gap: 10px; }
+  .sticky-header .nav-cta { grid-column: 2; grid-row: 1; }
+  .sticky-header .nav-links { display: flex !important; grid-column: 1 / -1; grid-row: 2; gap: 18px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+  .sticky-header .nav-links a { flex: 0 0 auto; padding: 6px 0; }
+}
+@media (max-width: 768px) {
+  .hero-module { padding: 24px 0 36px; }
+  .giant-panda-graphic { width: 84px; height: 84px; margin-bottom: 14px; }
+  .hero-module h1 { font-size: 1.85rem; margin-bottom: 14px; line-height: 1.3; }
+  .hero-module p { font-size: 1rem; margin-bottom: 18px; line-height: 1.7; }
+  .btn-wrapper { width: 100%; gap: 12px; }
+  .btn-wrapper .capsule-btn { flex: 1 1 100%; text-align: center; padding: 13px 20px; font-size: 1.05rem; }
+}
+
+/* market-price cards (2026-11-22) */
+.mk-chip { align-self: center; font-size: 0.78rem; color: #ffd0a8; border: 1px dashed var(--flare); padding: 3px 12px; border-radius: 999px; margin-bottom: 12px; }
+.mk-price { text-align: center; font-size: 2.2rem; font-weight: bold; color: var(--flare); margin: 4px 0 14px; line-height: 1.1; }
+.mk-price small { font-size: 0.8rem; color: #cfd2e8; font-weight: normal; }
+.mk-source { font-size: 0.78rem; margin-bottom: 14px; line-height: 1.6; color: #aaa; }
+.price-card h3 { font-size: 1.15rem; }
+
+.mk-orig { display: block; font-size: 0.76rem; font-weight: normal; color: #cfd2e8; margin-top: 4px; line-height: 1.5; }
+.mk-price small:first-child { font-size: 1rem; }
